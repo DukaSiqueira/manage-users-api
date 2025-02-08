@@ -1,0 +1,65 @@
+services:
+
+  # PHP Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: api
+      SERVICE_TAG: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - api-network
+
+  # Nginx Service
+  api_server:
+    image: nginx:alpine
+    container_name: api_server
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - api-network
+
+  #MySQL Service
+  db:
+    image: mysql:8.0
+    container_name: database
+    restart: unless-stopped
+    tty: true
+    environment:
+        SERVICE_NAME: mysql
+        SERIVE_TAG: dev
+        MYSQL_DATABASE: manage-users
+        MYSQL_USER: dev
+        MYSQL_PASSWORD: dev_123
+        MYSQL_ROOT_PASSWORD: root_123
+    ports:
+        - "3306:3306"
+    volumes:
+        - dbdata:/var/lib/mysql/
+        - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+        - api-network
+
+#Docker Networks
+networks:
+    api-network:
+        driver: bridge
+
+#Docker Volumes
+volumes:
+    dbdata:
+        driver: local
