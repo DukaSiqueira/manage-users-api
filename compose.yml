@@ -41,7 +41,7 @@ services:
     tty: true
     environment:
         SERVICE_NAME: mysql
-        SERIVE_TAG: dev
+        SERVIC  E_TAG: dev
         MYSQL_DATABASE: manage-users
         MYSQL_USER: dev
         MYSQL_PASSWORD: dev_123
@@ -49,7 +49,7 @@ services:
     ports:
         - "3306:3306"
     volumes:
-        - dbdata:/var/lib/mysql/
+        - dbdata:/var/lib/mysql
         - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
         - api-network

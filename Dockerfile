@@ -31,7 +31,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install gd
 
 
@@ -46,7 +46,7 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 COPY . /var/www
 
 # Set permissions for storage and cache directories
-RUN chown -R www:www /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www:www /var/www
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Copy the permissions from the existing application directory
