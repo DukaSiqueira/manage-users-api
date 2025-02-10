@@ -44,24 +44,24 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED        ST
 
 Já deixei o .env.example com as credências de desenvolvimento para facilitar o testes e as conexões são locais, então não têm risco.
 
-5. Access the application container
+5. Acesse o container da aplicação
 
 ```ssh
   docker exec -it api bash
 ```
 
-6. Install the dependencies
+6. Instale as dependencias
 
 ```ssh
   composer install
 ```
 
-7. Generate the application key
+7. Gere a chave da applicação
 
 ```ssh
   php artisan key:generate
 ```
 
-8. Access the application in web
+8. Utilize o endpoint base para acessar o recursos
 
 [localhost](http://localhost)
