@@ -6,7 +6,7 @@ Projeto simples feito em Laravel 11 para gerenciamento de usuários, cadastro, l
 
 - Docker
 
-## Installation
+## Instalação
 
 1. Clone o repository:
 
@@ -15,19 +15,19 @@ Projeto simples feito em Laravel 11 para gerenciamento de usuários, cadastro, l
   cd going_back_v2
 ```
 
-2. Run docker compose
+2. Rode docker compose
 
 ```sh
   docker compose up -d
 ```
 
-3. Check that the containers run correctly
+3. Verifique se os containers estão rodando corretamente
 
 ```sh
   docker ps
 ```
 
-You should see something like
+Você deve ver algo parecido com:
 
 ```sh 
 CONTAINER ID   IMAGE                  COMMAND                  CREATED        STATUS          PORTS                                      NAMES
@@ -36,7 +36,7 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED        ST
 94d869f8904c   mysql:8.0              "docker-entrypoint.s…"   39 hours ago   Up 3 minutes    0.0.0.0:3306->3306/tcp, 33060/tcp          database
 ```
 
-4. Configure the .env
+4. Configure o .env
 
 ```ssh
   cp .env.example .env
