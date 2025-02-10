@@ -65,3 +65,7 @@ Já deixei o .env.example com as credências de desenvolvimento para facilitar o
 8. Utilize o endpoint base para acessar o recursos
 
 [localhost](http://localhost)
+
+9. Acessar a documentação
+
+[localhost/api/documentation](http://localhost/api/documentation)
