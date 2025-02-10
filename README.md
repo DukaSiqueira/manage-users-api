@@ -11,8 +11,8 @@ Projeto simples feito em Laravel 11 para gerenciamento de usuários, cadastro, l
 1. Clone o repository:
 
 ```sh
-  git clone https://github.com/Go-Ingressos/going_back_v2.git
-  cd going_back_v2
+  git clone https://github.com/DukaSiqueira/manage-users-api.git
+  cd manage-users-api
 ```
 
 2. Rode docker compose
